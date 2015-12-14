@@ -1,0 +1,31 @@
+/* TREEHOUSE PHOTO GALLERY PROJECT - MEDIA QUERIES */
+/* GENERAL AND SMALL SCREEN STYLINGS LOCATED IN STYLES.CSS */
+
+@media screen and (min-width: 1100px) {
+	.lightboxPic {
+		margin-top: 105px;
+	}
+	
+	.captionsWrap p {
+		text-align: left;
+	}
+	
+	.arrow {
+		top: 300px;
+	}
+	
+	.arrowLeft {
+		margin-left: -450px;
+	}
+	
+	.arrowRight {
+		margin-left: 415px;
+	}
+	
+	.closeLightbox {
+		top: 65px;
+		right: auto;
+		left: 50%;
+		margin-left: 405px;
+	}
+}
