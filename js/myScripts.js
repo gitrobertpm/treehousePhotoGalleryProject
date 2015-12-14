@@ -81,7 +81,7 @@ arrowRight[0].onclick = function() {
 	}
 };
 
-// KEYBOARD ARROWS
+// KEYBOARD ARROWS TO SCROLL THROUGH LIGHTBOX IMAGES AND SUBTITLE
 document.onkeydown = function(e) {
 	e = e || window.event;
 	if (e.keyCode == "37") {
@@ -121,7 +121,6 @@ var captionsWrap = document.getElementsByClassName("captionsWrap");
 
 var caps = captionsWrap[0].textContent;
 var cap = caption[0].textContent;
-//var jackpot;
 
 // SEARCH CAPTIONS THAT MATCH INPUT, CHANGE ALL NON-MATCHING PICS GREY AND HIGHLIGHT ALL MATCHING PICS
 function cerch(key) {
@@ -133,11 +132,9 @@ function cerch(key) {
 		if (success === null) {
 			pic[i].style.webkitFilter = "grayscale(1)";
 			pic[i].style.filter = "grayscale(1)";
-			pic[i].style.boxShadow = "none";
 		} else {
-			pic[i].style.webkitFilter = "grayscale(0)";
-			pic[i].style.filter = "grayscale(0)";
-			pic[i].style.boxShadow = "10px 10px 10px rgba(50,50,50,0.5)";
+			pic[i].style.webkitFilter = "grayscale(0) drop-shadow(10px 10px 10px rgba(50,50,50,.5))";
+			pic[i].style.filter = "grayscale(0) drop-shadow(10px 10px 10px rgba(50,50,50,.5))";
 		}
 	}  
 };
@@ -148,11 +145,9 @@ input[0].oninput = function() {
 	// DISCARD HIGHLIGHTING IF INPUT FIELD IS EMPTY
 	if (input[0].value == null || input[0].value == "") {
 		for (var i = 0; i < caption.length; i++) {
-			pic[i].style.boxShadow = "none";
+			pic[i].style.webkitFilter = "none";
+			pic[i].style.filter = "none";
 		}
 	}
 };
-
-
-
 

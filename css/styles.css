@@ -38,14 +38,10 @@ input {
 	margin: auto;
 }
 
-img {
+.pic {
 	margin: 30px;
 	cursor: pointer;
 	-webkit-transition: .5s; transition: .5s;
-}
-
-img:active, img:focus, img:hover {
-	box-shadow: 10px 10px 10px rgba(50,50,50,0.5);
 }
 
 .lightbox {
@@ -64,10 +60,6 @@ img:active, img:focus, img:hover {
 	margin: 90px auto 60px;
 	background-repeat: no-repeat !important;
 	background-size: 100% 100% !important;
-}
-
-.captionsWrap {
-	
 }
 
 .captionsWrap p {
