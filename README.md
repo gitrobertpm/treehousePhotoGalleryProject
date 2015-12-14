@@ -1,2 +1,2 @@
 # treehousePhotoGalleryProject
-Photo gellery project for Treehouse
+Photo gallery project for Treehouse
