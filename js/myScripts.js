@@ -127,13 +127,6 @@ SEARCH
 =================================*/
 
 var input = document.getElementsByTagName("input");
-<<<<<<< HEAD
-var captionsWrap = document.getElementsByClassName("captionsWrap");
-
-var caps = captionsWrap[0].textContent;
-var cap = caption[0].textContent;
-=======
->>>>>>> gh-pages
 
 // SEARCH CAPTIONS THAT MATCH INPUT, CHANGE ALL NON-MATCHING PICS GREY AND HIGHLIGHT ALL MATCHING PICS
 function cerch(key) {
@@ -145,17 +138,11 @@ function cerch(key) {
 		if (success === null) {
 			pic[i].style.webkitFilter = "grayscale(1)";
 			pic[i].style.filter = "grayscale(1)";
-<<<<<<< HEAD
-		} else {
-			pic[i].style.webkitFilter = "grayscale(0) drop-shadow(10px 10px 10px rgba(50,50,50,.5))";
-			pic[i].style.filter = "grayscale(0) drop-shadow(10px 10px 10px rgba(50,50,50,.5))";
-=======
 			pic[i].style.opacity = "0.5";
 		} else {
 			pic[i].style.webkitFilter = "grayscale(0) drop-shadow(10px 10px 10px rgba(50,50,50,.5))";
 			pic[i].style.filter = "grayscale(0) drop-shadow(10px 10px 10px rgba(50,50,50,.5))";
 			pic[i].style.opacity = "1";
->>>>>>> gh-pages
 		}
 	}  
 };
@@ -168,10 +155,7 @@ input[0].oninput = function() {
 		for (var i = 0; i < caption.length; i++) {
 			pic[i].style.webkitFilter = "none";
 			pic[i].style.filter = "none";
-<<<<<<< HEAD
-=======
 			pic[i].style.opacity = "1";
->>>>>>> gh-pages
 		}
 	}
 };
