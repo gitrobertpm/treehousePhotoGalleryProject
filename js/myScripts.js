@@ -5,6 +5,7 @@ JAVASCRIPT FOR TREEHOUSE PHOTO GALLERY PROJECT
 "use strict";
 
 var width = window.innerWidth;
+var height = window.innerHeight;
 
 /*==============================
 LIGHTBOX 
@@ -17,11 +18,20 @@ var caption = document.getElementsByClassName("caption");
 
 var bigPics = ["photos/01.jpg", "photos/02.jpg", "photos/03.jpg", "photos/04.jpg", "photos/05.jpg", "photos/06.jpg", "photos/07.jpg", "photos/08.jpg", "photos/09.jpg", "photos/10.jpg", "photos/11.jpg", "photos/12.jpg"];
 
-// MAKE IMAGES CLICKABLE, OPEN LIGHTBOX, SET NEW IMAGE, ADD SUBTITLE
+// MAKE IMAGES CLICKABLE, OPEN LIGHTBOX, SET NEW IMAGE, ADD CAPTION
 for (var i = 0; i < pic.length; i++) {
 	pic[i].addEventListener("click", function(id){
 		id = this.id;
 		lightbox[0].style.display = "block";
+		
+		// MAKE LIGHTBOX OPEN IN WINDOW INSTEAD OF TOP OF DOCUMENT IN CASE OF USER SCROLL - ACOUNTS FOR CORSS-BROWSER 
+		if (navigator.userAgent.indexOf("Firefox") > 0) {
+			lightbox[0].style.top = document.documentElement.scrollTop + "px";
+		} else if (navigator.userAgent.indexOf("AppleWebKit") > 0 || navigator.userAgent.indexOf("Trident") > 0) {
+			lightbox[0].style.top = window.pageYOffset + "px";
+		}
+		
+		// ADD CAPTION TO PIC
 		for (var j = 0; j < pic.length; j++) {
 			if (j == id) {
 				caption[j].style.display = "block";
@@ -117,10 +127,6 @@ SEARCH
 =================================*/
 
 var input = document.getElementsByTagName("input");
-var captionsWrap = document.getElementsByClassName("captionsWrap");
-
-var caps = captionsWrap[0].textContent;
-var cap = caption[0].textContent;
 
 // SEARCH CAPTIONS THAT MATCH INPUT, CHANGE ALL NON-MATCHING PICS GREY AND HIGHLIGHT ALL MATCHING PICS
 function cerch(key) {
@@ -132,9 +138,11 @@ function cerch(key) {
 		if (success === null) {
 			pic[i].style.webkitFilter = "grayscale(1)";
 			pic[i].style.filter = "grayscale(1)";
+			pic[i].style.opacity = "0.5";
 		} else {
 			pic[i].style.webkitFilter = "grayscale(0) drop-shadow(10px 10px 10px rgba(50,50,50,.5))";
 			pic[i].style.filter = "grayscale(0) drop-shadow(10px 10px 10px rgba(50,50,50,.5))";
+			pic[i].style.opacity = "1";
 		}
 	}  
 };
@@ -142,11 +150,12 @@ function cerch(key) {
 // CALL SEARCH FUNCTION WITH EVERY ENTRY INTO THE INPUT
 input[0].oninput = function() {
 	cerch(input[0].value)
-	// DISCARD HIGHLIGHTING IF INPUT FIELD IS EMPTY
+	// DISCARD HIGHLIGHTING IF INPUT FIELD IS EMPTIED
 	if (input[0].value == null || input[0].value == "") {
 		for (var i = 0; i < caption.length; i++) {
 			pic[i].style.webkitFilter = "none";
 			pic[i].style.filter = "none";
+			pic[i].style.opacity = "1";
 		}
 	}
 };
