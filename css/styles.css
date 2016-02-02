@@ -19,6 +19,12 @@ body {
 	background: white;
 }
 
+label {
+	font-size: 16pt;
+	color: grey;
+	margin: 8px auto;
+}
+
 input {
 	font-size: 16pt;
 	color: grey;
